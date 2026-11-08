@@ -146,7 +146,6 @@ function render(){
   var k=CITIES.filter(function(x){return x.id===c.city})[0];
   var h=norm([c.name,c.doc,c.ig,c.area.en,c.area.ar,k.en,k.ar].join(' '));
   return tk.every(function(t){return h.indexOf(t)>-1})});
- items.sort(function(a,b){var x=a.area.en||'~',y=b.area.en||'~';return x===y?a.name.toLowerCase().localeCompare(b.name.toLowerCase()):x.localeCompare(y)});
  $('list').innerHTML=items.length?items.map(function(c){
   var mt=[c.area[L],qs?CITIES.filter(function(x){return x.id===c.city})[0][L]:''].filter(Boolean).join(L==='ar'?'، ':', ');var href='https://instagram.com/'+encodeURIComponent(c.ig);var cn=CITIES.filter(function(x){return x.id===c.city})[0].en;var mh=c.maps||('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent([c.name,c.area.en,cn,'Egypt'].filter(Boolean).join(', ')));
   return '<li><div class="name">'+c.name+(c.doc?' — '+c.doc:'')+'</div>'+(mt?'<div class="meta">'+mt+'</div>':'')+
